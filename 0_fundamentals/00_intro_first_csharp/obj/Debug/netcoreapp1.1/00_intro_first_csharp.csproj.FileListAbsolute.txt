@@ -1,0 +1,8 @@
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\bin\Debug\netcoreapp1.1\00_intro_first_csharp.deps.json
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\bin\Debug\netcoreapp1.1\00_intro_first_csharp.runtimeconfig.json
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\bin\Debug\netcoreapp1.1\00_intro_first_csharp.runtimeconfig.dev.json
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\bin\Debug\netcoreapp1.1\00_intro_first_csharp.dll
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\bin\Debug\netcoreapp1.1\00_intro_first_csharp.pdb
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\obj\Debug\netcoreapp1.1\00_intro_first_csharp.AssemblyInfo.cs
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\obj\Debug\netcoreapp1.1\00_intro_first_csharp.dll
+C:\Users\jvod4\desktop\DojoAssignments\netCore\0_fundamentals\00_intro_first_csharp\obj\Debug\netcoreapp1.1\00_intro_first_csharp.pdb
