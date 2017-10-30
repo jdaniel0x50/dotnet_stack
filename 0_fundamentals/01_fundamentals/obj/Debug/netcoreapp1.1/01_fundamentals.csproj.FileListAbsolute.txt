@@ -1,0 +1,8 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\bin\Debug\netcoreapp1.1\01_fundamentals.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\bin\Debug\netcoreapp1.1\01_fundamentals.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\bin\Debug\netcoreapp1.1\01_fundamentals.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\bin\Debug\netcoreapp1.1\01_fundamentals.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\bin\Debug\netcoreapp1.1\01_fundamentals.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\obj\Debug\netcoreapp1.1\01_fundamentals.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\obj\Debug\netcoreapp1.1\01_fundamentals.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\01_fundamentals\obj\Debug\netcoreapp1.1\01_fundamentals.pdb
