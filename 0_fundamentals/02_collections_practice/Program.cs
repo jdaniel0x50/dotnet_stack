@@ -106,6 +106,37 @@ namespace _02_collections_practice
                 Console.WriteLine(entry.Key + " likes " + entry.Value + " ice cream");
             }
 
+            Console.WriteLine("");
+            Console.WriteLine("*** NEXT ASSIGNMENT: BOXING & UNBOXING ***");
+
+            Console.WriteLine("");
+            Console.WriteLine("Part II.One: Create a list of type object and add values");
+            List<object> objList = new List<object>();
+            objList.Add(7);
+            objList.Add(28);
+            objList.Add(-1);
+            objList.Add(true);
+            objList.Add("chair");
+
+            Console.WriteLine("");
+            Console.WriteLine("Part II.Two: Loop through the object list and print all values");
+            foreach (object item in objList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Part II.Three: Add all integer values in the object list");
+            int SumValues = 0;
+            foreach (object item in objList)
+            {
+                if (item is int)
+                {
+                    SumValues += Convert.ToInt32(item);
+                }
+            }
+            Console.WriteLine("The sum of integers = " + SumValues);
+
         }
     }
 }
