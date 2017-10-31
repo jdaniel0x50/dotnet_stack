@@ -1,0 +1,8 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\bin\Debug\netcoreapp1.1\04_human_oop.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\bin\Debug\netcoreapp1.1\04_human_oop.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\bin\Debug\netcoreapp1.1\04_human_oop.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\bin\Debug\netcoreapp1.1\04_human_oop.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\bin\Debug\netcoreapp1.1\04_human_oop.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\obj\Debug\netcoreapp1.1\04_human_oop.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\obj\Debug\netcoreapp1.1\04_human_oop.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\04_human_oop\obj\Debug\netcoreapp1.1\04_human_oop.pdb
