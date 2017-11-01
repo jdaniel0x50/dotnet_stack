@@ -1,0 +1,8 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\bin\Debug\netcoreapp1.1\06_music_linq.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\bin\Debug\netcoreapp1.1\06_music_linq.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\bin\Debug\netcoreapp1.1\06_music_linq.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\obj\Debug\netcoreapp1.1\06_music_linq.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\bin\Debug\netcoreapp1.1\06_music_linq.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\bin\Debug\netcoreapp1.1\06_music_linq.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\obj\Debug\netcoreapp1.1\06_music_linq.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\06_music_linq\obj\Debug\netcoreapp1.1\06_music_linq.pdb
