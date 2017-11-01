@@ -1,0 +1,8 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\bin\Debug\netcoreapp1.1\05_deck_of_cards_oop.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\bin\Debug\netcoreapp1.1\05_deck_of_cards_oop.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\bin\Debug\netcoreapp1.1\05_deck_of_cards_oop.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\bin\Debug\netcoreapp1.1\05_deck_of_cards_oop.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\bin\Debug\netcoreapp1.1\05_deck_of_cards_oop.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\obj\Debug\netcoreapp1.1\05_deck_of_cards_oop.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\obj\Debug\netcoreapp1.1\05_deck_of_cards_oop.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\05_deck_of_cards_oop\obj\Debug\netcoreapp1.1\05_deck_of_cards_oop.pdb
