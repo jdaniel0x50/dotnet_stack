@@ -1,0 +1,10 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\bin\Debug\netcoreapp2.0\01_Calling_Card.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\bin\Debug\netcoreapp2.0\01_Calling_Card.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\bin\Debug\netcoreapp2.0\01_Calling_Card.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\bin\Debug\netcoreapp2.0\01_Calling_Card.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\bin\Debug\netcoreapp2.0\01_Calling_Card.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\obj\Debug\netcoreapp2.0\01_Calling_Card.csproj.CoreCompileInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\obj\Debug\netcoreapp2.0\01_Calling_Card.AssemblyInfoInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\obj\Debug\netcoreapp2.0\01_Calling_Card.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\obj\Debug\netcoreapp2.0\01_Calling_Card.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\01_Calling_Card\obj\Debug\netcoreapp2.0\01_Calling_Card.pdb
