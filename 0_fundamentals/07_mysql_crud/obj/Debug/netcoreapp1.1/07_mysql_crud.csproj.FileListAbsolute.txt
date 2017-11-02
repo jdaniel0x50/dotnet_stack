@@ -1,0 +1,8 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\bin\Debug\netcoreapp1.1\07_mysql_crud.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\bin\Debug\netcoreapp1.1\07_mysql_crud.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\bin\Debug\netcoreapp1.1\07_mysql_crud.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\bin\Debug\netcoreapp1.1\07_mysql_crud.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\bin\Debug\netcoreapp1.1\07_mysql_crud.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\obj\Debug\netcoreapp1.1\07_mysql_crud.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\obj\Debug\netcoreapp1.1\07_mysql_crud.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\0_fundamentals\07_mysql_crud\obj\Debug\netcoreapp1.1\07_mysql_crud.pdb
