@@ -1,0 +1,10 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\bin\Debug\netcoreapp2.0\03_Portfolio.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\bin\Debug\netcoreapp2.0\03_Portfolio.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\bin\Debug\netcoreapp2.0\03_Portfolio.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\bin\Debug\netcoreapp2.0\03_Portfolio.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\bin\Debug\netcoreapp2.0\03_Portfolio.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\obj\Debug\netcoreapp2.0\03_Portfolio.csproj.CoreCompileInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\obj\Debug\netcoreapp2.0\03_Portfolio.AssemblyInfoInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\obj\Debug\netcoreapp2.0\03_Portfolio.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\obj\Debug\netcoreapp2.0\03_Portfolio.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\03_Portfolio\obj\Debug\netcoreapp2.0\03_Portfolio.pdb
