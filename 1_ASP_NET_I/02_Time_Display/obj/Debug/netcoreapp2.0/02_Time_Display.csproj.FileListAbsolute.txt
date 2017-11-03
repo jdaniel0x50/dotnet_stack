@@ -1,0 +1,10 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\bin\Debug\netcoreapp2.0\02_Time_Display.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\bin\Debug\netcoreapp2.0\02_Time_Display.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\bin\Debug\netcoreapp2.0\02_Time_Display.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\bin\Debug\netcoreapp2.0\02_Time_Display.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\bin\Debug\netcoreapp2.0\02_Time_Display.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\obj\Debug\netcoreapp2.0\02_Time_Display.csproj.CoreCompileInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\obj\Debug\netcoreapp2.0\02_Time_Display.AssemblyInfoInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\obj\Debug\netcoreapp2.0\02_Time_Display.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\obj\Debug\netcoreapp2.0\02_Time_Display.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\02_Time_Display\obj\Debug\netcoreapp2.0\02_Time_Display.pdb
