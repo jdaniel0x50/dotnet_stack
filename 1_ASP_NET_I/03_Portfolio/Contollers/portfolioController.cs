@@ -27,5 +27,23 @@ namespace _03_Portfolio.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("survey")]
+        public IActionResult survey()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("form_process")]
+        public IActionResult success(string name, string location, string language, string comment)
+        {
+            ViewBag.name = name;
+            ViewBag.location = location;
+            ViewBag.language = language;
+            ViewBag.comment = comment;
+            return View();
+        }
+
     }
 }
