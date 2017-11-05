@@ -12530,6 +12530,7 @@
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.AspNetCore.Mvc >= 2.0.0",
+      "Microsoft.AspNetCore.Session >= 2.0.0",
       "Microsoft.AspNetCore.StaticFiles >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
@@ -12583,6 +12584,10 @@
             "version": "2.0.0"
           },
           "Microsoft.AspNetCore.Mvc": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.AspNetCore.Session": {
             "target": "Package",
             "version": "2.0.0"
           },

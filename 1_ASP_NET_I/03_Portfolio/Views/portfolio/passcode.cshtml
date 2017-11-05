@@ -1,3 +1,7 @@
+@using System;
+@using System.Web;
+@using Microsoft.AspNetCore.Http;
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <title>Portfolio: Survey</title>
+    <title>Generate Passcode</title>
 </head>
 
 <body>
@@ -56,22 +60,21 @@
                 </ul>
             </div>
         </nav>
-        <div class="mt-4 p-3">
-            <h2>Thank you for submitting your response to our survey!</h2>
-            <p class="text-underline">Your submission was received</p>
-            <div class="row mt-4 p-3">
-                <div class="row col-md-11">
-                    <p><span class="font-weight-bold">Name:</span> @ViewBag.name</p>
-                </div>
-                <div class="row col-md-11">
-                    <p><span class="font-weight-bold">Location:</span> @ViewBag.location</p>
-                </div>
-                <div class="row col-md-11">
-                    <p><span class="font-weight-bold">Language:</span> @ViewBag.language</p>
-                </div>
-                <div class="row col-md-11">
-                    <p><span class="font-weight-bold">Comment:</span> @ViewBag.comment</p>
-                </div>
+        <div class="mt-5 p-3 col-md-8 mx-auto text-center">
+            <div class="row mt-5 text-auto">
+                
+                <h3 class="mx-auto">Random Passcode (passcode # @ViewBag.iterator)</h3>
+            </div>
+            <div class="row mx-auto border border-dark rounded mt-3 p-3 text-center bg-secondary">
+                <h2 class="mx-auto">@ViewBag.RandomString</h2>
+            </div>
+            <div class="row mx-auto col-md-8 mt-5">
+                <form class="mx-auto mr-3" action="passcode" method="get">
+                    <input type="submit" class="btn btn-primary" value="Generate New Passcode">
+                </form>
+                <form class="mx-auto ml-3" action="passcode_clear" method="get">
+                    <input type="submit" class="btn btn-warning" value="Reset">
+                </form>
             </div>
         </div>
     </div>

@@ -16,6 +16,8 @@ namespace _03_Portfolio
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             services.AddMvc();
         }
 
@@ -29,6 +31,7 @@ namespace _03_Portfolio
             }
             
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvc();
         }
     }
