@@ -1,0 +1,123 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>DojoDachi</h1>
+<div class="container">
+    <div class="navbar navbar-dark bg-dark mx-auto mt-5 mb-4 rounded p-2">
+        <ul class="navbar-nav col-md-12 mx-auto">
+            <div class="row">
+                <li class="nav-item col-md-3 mx-auto text-center font-weight-bold text-white">Fullness: @ViewBag.fullness</li>
+                <li class="nav-item col-md-3 mx-auto text-center pl-3 pr-3 font-weight-bold text-white">Happiness: @ViewBag.happiness</li>
+                <li class="nav-item col-md-3 mx-auto text-center pl-3 pr-3 font-weight-bold text-white">Meals: @ViewBag.meals</li>
+                <li class="nav-item col-md-3 mx-auto text-center font-weight-bold text-white">Energy: @ViewBag.energy</li>
+
+            </div>
+        </ul>
+    </div>
+</div>
+@{
+    int meals = ViewBag.meals;
+    int energy = ViewBag.energy;
+    int fullness = ViewBag.fullness;
+    int happiness = ViewBag.happiness;
+    string message = "";
+    string imgSource = "";
+    if (fullness<100 || happiness<100 || energy<100)
+    {        
+        if ((fullness>0 && happiness>0) || energy<0)
+        {
+            message = ViewBag.message;
+            imgSource = ViewBag.imgSource;
+
+            <div class="row mx-auto text-center">
+                <form class="col-md-3 mx-auto" action="feed" method="get">
+                    @if(ViewBag.meals>0)
+                    {
+                        <input class="btn btn-primary" type="submit" value="Feed">
+                    }
+                </form>
+                <form class="col-md-3 mx-auto" action="play" method="get">
+                    @if(ViewBag.energy>=5)
+                    {
+                        <input class="btn btn-primary" type="submit" value="Play">
+                    }
+                </form>
+                <form class="col-md-3 mx-auto" action="work" method="get">
+                    @if(ViewBag.energy>=5)
+                    {
+                        <input class="btn btn-primary" type="submit" value="Work">
+                    }
+                </form>
+                <form class="col-md-3 mx-auto" action="sleep" method="get">
+                    @if(ViewBag.fullness>=5 && ViewBag.happiness>=5)
+                    {
+                        <input class="btn btn-primary" type="submit" value="Sleep">
+                    }
+                </form>
+            </div>
+        }
+        else
+        {
+            <!-- the user lost the game -- fullness or happiness dropped below 0 -->
+            <!-- hide the method buttons and show restart at top -->
+            string subMessage = "";
+            if (fullness <=0 && happiness <= 0)
+            {
+                subMessage = "sadness and hunger";
+            }
+            else if (fullness <=0)
+            {
+                subMessage = "hunger";
+            }
+            else
+            {
+                subMessage = "sadness";
+            }
+            message = "You lost! Your dachi died with " + subMessage + ".";
+            imgSource = "/images/sad_hedgehog.jpg";
+
+            <div class="row mt-5">
+                <form class="mx-auto" action="restart" method="get">
+                    <input class="btn btn-dark pl-5 pr-5 font-weight-bold" type="submit" value="Restart">
+                </form>
+            </div>
+
+        }
+    }
+    else
+    {
+        <!-- the user won the game! -- fullness, happiness, and energy rose above 100 -->
+        <!-- hide the method buttons and show restart at top -->
+        message = "You won! Your dachi is full, happy, and has lots of energy!";
+        imgSource = "/images/sonic_hedgehog.png";
+
+        <div class="row mt-5">
+            <form class="mx-auto" action="restart" method="get">
+                <input class="btn btn-dark pl-5 pr-5 font-weight-bold" type="submit" value="Restart">
+            </form>
+        </div>
+    }
+    <div class="row mt-4 mb-5">
+        <div class="card col-md-10 mx-auto text-center p-4 pt-5 bg-dark">
+            <div class="row">
+                <div class="card-img-top container col-md-6 mx-auto">
+                    <img class="img-fluid img-thumbnail border-radius" src="@imgSource" alt="I'm a hedgehog">
+                </div>
+            </div>
+            <div class="card-body container mt-3">
+                <p class="card-text font-weight-bold text-white">@message</p>
+            </div>
+        </div>
+    </div>
+    @if (fullness<100 || happiness<100 || energy<100)
+    {
+        if (fullness>0 && happiness>0)
+        {
+            <div class="row mt-5 mb-5">
+                <form class="mx-auto" action="restart" method="get">
+                    <input class="btn btn-dark pl-5 pr-5 font-weight-bold" type="submit" value="Restart">
+                </form>
+            </div>
+        }
+    }
+}
