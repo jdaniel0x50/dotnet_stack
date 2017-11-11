@@ -1,0 +1,159 @@
+@model message_wall.Models.WallFormModel
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Wallbook"; 
+}
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-11 mx-auto">
+            <div class="panel panel-login p-3">
+                <div class="panel-heading">
+                    <div class="row p-3">
+                        <div class="row col-md-12">
+                            <h1 class="display-4">Your Wall</h1>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-2 mb-3">
+                <div class="row col-md-12 p-3">
+                    <form asp-controller="Wall" asp-action="Message_Create" class="col-md-12">
+                        <div class="form-group col-md-8 offset-md-1">
+                            @{
+                                string valMessage = "";
+
+                                if(ViewBag.messageErrors != null)
+                                {
+                                    valMessage = ViewBag.messageErrors["messageVM.message"].RawValue;
+                                }
+                                <label asp-for="messageVM.message">What are you thinking about today?</label>
+                                <input asp-for="messageVM.message" class="form-control form-control-lg" placeholder="Add a new message ..." value="@valMessage">
+                                @if(ViewBag.messageErrors != null)
+                                {
+                                    foreach(string key in ViewBag.messageErrors.Keys)
+                                    {
+                                        if (key == "messageVM.message" && ViewBag.messageErrors[key].Errors.Count > 0)
+                                        {
+                                            foreach(var error in ViewBag.messageErrors[key].Errors)
+                                            {
+                                                <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            <input type="submit" class="mt-3 col-md-4 form-control btn btn-login" value="Sumbit">
+                        </div>
+                    </form>
+                </div>
+                <hr class="mt-2 mb-3">
+                <div class="panel-body">
+                    <div class="row p-3">
+                        @{
+                            if (ViewBag.messages != null)
+                            {
+                                foreach (var msg in ViewBag.messages)
+                                {
+                                    <div class="col-md-12">
+                                        <div class="card border-info col-md-8 mx-auto mt-4">
+                                            <div class="card-header bg-info text-white">
+                                                A Message from <span class="h5"><u><em>@msg.first_name (@msg.username)</em></u></span>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item text-info">@msg.message</li>
+                                                <li class="list-group-item text-right footer">
+                                                    <small class="text-muted">Message Posted: @msg.created_at.ToString()</small>
+                                                    @if (msg.updated_at > msg.created_at)
+                                                    {
+                                                        <small class="text-muted">- last Updated on @msg.updated_at.ToString()</small>
+                                                    }
+                                                </li>
+                                                @{
+                                                    if (Context.Session.GetInt32("LoggedIn_Id") == msg.user_id)
+                                                    {
+                                                        <li class="list-group-item text-info text-right"><a class="text-muted" asp-action="Message_Destroy" asp-route-msg_id="@msg.id"><small class="text-danger font-weight-bold">DELETE</small></a></li>
+                                                    }
+                                                }
+                                                <li class="list-group-item text-right">
+                                                    <form asp-controller="Wall" asp-action="Comment_Create" asp-route-msg_id="@msg.id" method="post" class="col-md-12">
+                                                        <div class="row">
+                                                            @{
+                                                                string valComment = "";
+
+                                                                if(ViewBag.commentErrors != null)
+                                                                {
+                                                                    int Comment_MsgId = Convert.ToInt32(ViewBag.commentErrors["msg_id"].RawValue);
+                                                                    if (Comment_MsgId == msg.id)
+                                                                    {
+                                                                        valComment = ViewBag.commentErrors["commentVM.comment"].RawValue;
+                                                                    }
+                                                                }
+                                                                <input type="hidden" name="message_id" value="@msg.id">
+                                                                <input asp-for="commentVM.comment" class="form-control col-md-8 mr-3" placeholder="Add a comment ..." value="@valComment">
+                                                                <input type="submit" class="form-control btn btn-outline-warning btn-sm col-md-2" value="Post">
+                                                                <div class="row">
+                                                                    @if(ViewBag.commentErrors != null)
+                                                                    {
+                                                                        foreach(string key in ViewBag.commentErrors.Keys)
+                                                                        {
+                                                                            int Comment_MsgId = Convert.ToInt32(ViewBag.commentErrors["msg_id"].RawValue);
+                                                                            if (key == "commentVM.comment" && Comment_MsgId == msg.id && ViewBag.commentErrors[key].Errors.Count > 0)
+                                                                            {
+                                                                                foreach(var error in ViewBag.commentErrors[key].Errors)
+                                                                                {
+                                                                                    <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </form>
+                                                </li>                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    @if (ViewBag.comments != null)
+                                    {
+                                        foreach (var comment in ViewBag.comments)
+                                        {
+                                            if (comment.message_id == msg.id)
+                                            {
+                                                <div class="card border-warning col-md-6 offset-md-6 mt-2">
+                                                    <div class="card-header bg-warning text-white">
+                                                        A Comment from <span class="h5"><u><em>@comment.first_name (@comment.username)</em></u></span>
+                                                    </div>
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item text-info">@comment.comment</li>
+                                                        @{
+                                                            if (Context.Session.GetInt32("LoggedIn_Id") == comment.user_id)
+                                                            {
+                                                                <li class="list-group-item text-info text-right"><a class="text-muted" asp-action="Comment_Destroy" asp-route-msg_id="@msg.id" asp-route-cmmnt_id="@comment.id"><small class="text-danger font-weight-bold">DELETE</small></a></li>
+                                                            }
+                                                        }
+                                                        <li class="list-group-item text-right footer">
+                                                            <small class="text-muted">Comment Posted: @comment.created_at.ToString()</small>
+                                                            @if (comment.updated_at > comment.created_at)
+                                                            {
+                                                                <small class="text-muted">- last Updated on @comment.updated_at.ToString()</small>
+                                                            }
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            }
+                                        }
+                                    }
+
+
+
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
