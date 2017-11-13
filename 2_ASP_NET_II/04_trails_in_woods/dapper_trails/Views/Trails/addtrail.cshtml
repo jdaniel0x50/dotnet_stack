@@ -1,0 +1,146 @@
+@model dapper_trails.Models.TrailAddViewModel
+@{
+    ViewData["Title"] = "Add Trail | Lost in the Woods"; 
+}
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div id="regContainer" class="container">
+    <div class="row">
+        <div class="col-md-11 mx-auto">
+            <div class="panel panel-login p-5">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-9 d-inline-block align-baseline">
+                            <h1 class="display-4 text-left">Add a New Trail</h1>
+                        </div>
+                        <div class="col-md-3 d-inline-block text-right align-baseline">
+                            <a class="align-bottom d-inline-block position-relative float-none font-weight-bold" href="/trails">Return to Trails</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form asp-controller="Trails" asp-action="Create" method="post" class="col-md-12">
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="name" class="col-sm-2 col-form-label font-weight-bold"></label>
+                                <input asp-for="name" tabindex="1" class="form-control col-md-6" placeholder="Trail Name" value="">
+                                @{
+                                    if(ViewBag.trailErrors != null)
+                                    {
+                                        foreach(string key in ViewBag.trailErrors.Keys)
+                                        {
+                                            if (key == "name" && ViewBag.trailErrors[key].Errors.Count > 0)
+                                            {
+                                                foreach(var error in ViewBag.trailErrors[key].Errors)
+                                                {
+                                                    <p class="col-md-12 text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="description" class="col-sm-2 col-form-label font-weight-bold"></label>
+                                <input asp-for="description" tabindex="2" class="form-control col-md-6" placeholder="Description" value="">
+                                @{
+                                    if(ViewBag.trailErrors != null)
+                                    {
+                                        foreach(string key in ViewBag.trailErrors.Keys)
+                                        {
+                                            if (key == "description" && ViewBag.trailErrors[key].Errors.Count > 0)
+                                            {
+                                                foreach(var error in ViewBag.trailErrors[key].Errors)
+                                                {
+                                                    <p class="col-md-12 text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="length" class="col-sm-2 col-form-label font-weight-bold"></label>
+                                <input asp-for="length" tabindex="3" class="form-control col-md-6 mr-2 text-right" placeholder="0.0" value=0.0><label class="col-form-label col-sm-2"> miles</label>
+                                @{
+                                    if(ViewBag.trailErrors != null)
+                                    {
+                                        foreach(string key in ViewBag.trailErrors.Keys)
+                                        {
+                                            if (key == "length" && ViewBag.trailErrors[key].Errors.Count > 0)
+                                            {
+                                                foreach(var error in ViewBag.trailErrors[key].Errors)
+                                                {
+                                                    <p class="col-md-12 text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="elevation_change" class="col-sm-2 col-form-label font-weight-bold"></label>
+                                <input asp-for="elevation_change" tabindex="4" class="form-control col-md-6 text-right" placeholder="0" value=0><label class="col-form-label col-sm-2"> feet</label>
+                                @{
+                                    if(ViewBag.trailErrors != null)
+                                    {
+                                        foreach(string key in ViewBag.trailErrors.Keys)
+                                        {
+                                            if (key == "elevation_change" && ViewBag.trailErrors[key].Errors.Count > 0)
+                                            {
+                                                foreach(var error in ViewBag.trailErrors[key].Errors)
+                                                {
+                                                    <p class="col-md-12 text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="latitude" class="col-sm-2 col-form-label font-weight-bold"></label>
+                                <input asp-for="latitude" tabindex="5" class="form-control col-md-6 text-right" placeholder="Decimal degree N or S" value="">
+                                @{
+                                    if(ViewBag.trailErrors != null)
+                                    {
+                                        foreach(string key in ViewBag.trailErrors.Keys)
+                                        {
+                                            if (key == "latitude" && ViewBag.trailErrors[key].Errors.Count > 0)
+                                            {
+                                                foreach(var error in ViewBag.trailErrors[key].Errors)
+                                                {
+                                                    <p class="col-md-12 text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="longitude" class="col-sm-2 col-form-label font-weight-bold"></label>
+                                <input asp-for="longitude" tabindex="6" class="form-control col-md-6 text-right" placeholder="Decimal degree E or W" value="">
+                                @{
+                                    if(ViewBag.trailErrors != null)
+                                    {
+                                        foreach(string key in ViewBag.trailErrors.Keys)
+                                        {
+                                            if (key == "longitude" && ViewBag.trailErrors[key].Errors.Count > 0)
+                                            {
+                                                foreach(var error in ViewBag.trailErrors[key].Errors)
+                                                {
+                                                    <p class="col-md-12 text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                            <div class="row col-md-9 mt-5">
+                                <input type="submit" tabindex="7" class="form-control col-md-6 btn btn-register bg-info border-info font-weight-bold">
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+@model dapper_trails.Models.TrailAddViewModel
+@{
+    ViewData["Title"] = "View Trail | Lost in the Woods"; 
+}
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div id="regContainer" class="container">
+    <div class="row">
+        <div class="col-md-11 mx-auto">
+            <div class="panel panel-login p-5">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-9 d-inline-block align-baseline">
+                            <h1 class="display-4 text-left">@ViewBag.SingleTrail.name</h1>
+                        </div>
+                        <div class="col-md-3 d-inline-block text-right align-baseline">
+                            <a class="align-bottom d-inline-block position-relative float-none font-weight-bold" href="/trails">Return to Trails</a>
+                        </div>
+                    </div>
+                    <div class="card mt-5 p-5">
+                        <div class="card-body">
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="description" class="col-sm-2 col-align-baseline font-weight-bold"></label>
+                                <p asp-for="description" class="col-md-6 align-bottom">@ViewBag.SingleTrail.name</p>
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="length" class="col-sm-2 col-align-baseline font-weight-bold"></label>
+                                <p asp-for="length" class="col-md-6 align-bottom">@ViewBag.SingleTrail.length  miles</p>
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="elevation_change" class="col-sm-2 col-align-baseline font-weight-bold"></label>
+                                <p asp-for="elevation_change" class="col-md-6 align-bottom">@ViewBag.SingleTrail.elevation_change  feet</p>
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="latitude" class="col-sm-2 col-align-baseline font-weight-bold"></label>
+                                <p asp-for="latitude" class="col-md-6 align-bottom">@ViewBag.SingleTrail.latitude</p>
+                            </div>
+                            <div class="row col-md-12 mt-3">
+                                <label asp-for="longitude" class="col-sm-2 col-align-baseline font-weight-bold"></label>
+                                <p asp-for="longitude" class="col-md-6 align-bottom">@ViewBag.SingleTrail.longitude</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
