@@ -10,12 +10,6 @@ namespace _02_Time_Display.Controllers
         [Route("")]
         public IActionResult time()
         {
-            DateTime CurrentTime = DateTime.Now.ToString("D");
-            var AnonObject = new
-            {
-                date = "DATE",
-                time = "TIME"
-            };
             return View();
         }
     }

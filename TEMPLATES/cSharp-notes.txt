@@ -1,0 +1,274 @@
+CANDYMAN Setup==========================
+1) Run Candyman command with app name or without(will get prompt)
+	$ yo candyman <your app name>
+
+2) Navigate to directory, run restore
+	$ dotnet restore
+
+3) For DB Connections, add packages and create DbConnection.cs
+	$ dotnet add package MySql.Data
+	$ dotnet add package System.Data.SqlClient
+	
+	// update DB name in DbConnection.cs
+
+
+4) Add appsettings.json file
+	$ dotnet add package Microsoft.Extensions.Options.ConfigurationExtensions
+
+	//add to Startup.cs
+	using Microsoft.Extensions.Configuration;
+	using Microsoft.AspNetCore.Hosting;
+
+	//Make sure below is added into csproj file
+	    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1" />
+
+
+	///Add constructor function for appsettings.json reference on build
+	public IConfiguration Configuration { get; private set; }
+	 
+	public Startup(IHostingEnvironment env)
+	{
+	    var builder = new ConfigurationBuilder()
+	    .SetBasePath(env.ContentRootPath)
+	    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: 	true)
+	    .AddEnvironmentVariables();
+	    Configuration = builder.Build();
+	}
+	
+	///ConfigureServices
+       	services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+        services.AddScoped<DbConnector>();
+
+	
+	//Add ~/Properties/MySqlOptions.cs
+	namespace ExampleNamespace
+	{
+	    public class MySqlOptions
+	    {
+	        public string Name { get; set; }
+	        public string ConnectionString { get; set; }
+	    }
+	}
+
+	//Add constructor to Controller.cs
+	///right after public class ExampleController : Controller {
+
+        private readonly DbConnector _dbConnector;
+        public YourController(DbConnector connect)
+        {
+            _dbConnector = connect;
+        }
+
+5) Create DbConnection.cs file to root
+	//Paste code into
+	using System.Collections.Generic;
+	using System.Data;
+	using Microsoft.Extensions.Options;
+	using MySql.Data.MySqlClient;
+	 
+	namespace YourNamespace
+	{
+	    public class DbConnector
+	    {
+	        private readonly IOptions<MySqlOptions> MySqlConfig;
+	 
+	        public DbConnector(IOptions<MySqlOptions> config)
+	        {
+	            MySqlConfig = config;
+	        }
+	        internal IDbConnection Connection {
+	            get {
+	                return new MySqlConnection(MySqlConfig.Value.ConnectionString);
+	            }
+	        }
+	        
+	        //This method runs a query and stores the response in a list of dictionary records
+	        public List<Dictionary<string, object>> Query(string queryString)
+	        {
+	            using(IDbConnection dbConnection = Connection)
+	            {
+	                using(IDbCommand command = dbConnection.CreateCommand())
+	                {
+	                   command.CommandText = queryString;
+	                   dbConnection.Open();
+	                   var result = new List<Dictionary<string, object>>();
+	                   using(IDataReader rdr = command.ExecuteReader())
+	                   {
+	                      while(rdr.Read())
+	                      {
+	                          var dict = new Dictionary<string, object>();
+	                          for( int i = 0; i < rdr.FieldCount; i++ ) {
+	                              dict.Add(rdr.GetName(i), rdr.GetValue(i));
+	                          }
+	                          result.Add(dict);
+	                      }
+	                   }
+	                   return result;
+	                }
+	            }
+	        }
+	        //This method run a query and returns no values
+	        public void Execute(string queryString)
+	        {
+	            using (IDbConnection dbConnection = Connection)
+	            {
+	                using(IDbCommand command = dbConnection.CreateCommand())
+	                {
+	                    command.CommandText = queryString;
+	                    dbConnection.Open();
+	                    command.ExecuteNonQuery();
+	                }
+	            }
+	        }
+	    }
+	}
+
+6) Ready to test…
+
+
+RAW Setup (without Candyman)===============================
+1) make directory, move into dir and start new web project
+	$ dotnet new web
+
+2) Add to Startup.cs 
+	using Microsoft.Extensions.Logging;	
+
+	Configure params
+	…, ILoggerFactory loggerFactory)
+
+3) Ensure Dev environment
+	$ export ASPNETCORE_ENVIRONMENT=Development
+
+4) Add to .csproj file
+	<ItemGroup>
+	  <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+	</ItemGroup>
+
+5) Run to enable MVC
+	$ dotnet add package Microsoft.AspNetCore.Mvc
+	$ dotnet restore
+
+6) Edit Startup.cs file
+	Swap app.Run chunk with
+	app.UseMvc();
+
+	Place in ConfigureServices function
+	services.AddMvc();
+
+7) Create Controllers folder and Controller files with below code
+	using Microsoft.AspNetCore.Http;
+	using Microsoft.AspNetCore.Mvc;
+	
+	namespace example.Controllers
+	{
+	    public class ExampleController : Controller
+	    {
+	        [HttpGet]
+	        [Route("")]
+	        public IActionResult Index()
+	        {
+	            // return View();
+	            //OR
+	            return View("Index");
+	            //Both of these returns will render the same view (You 			only need one!)
+	        }
+	    }
+	}
+
+
+8) Should display “Hello World!” at localhost:5000
+
+9) Static Files go in root/wwwroot folders separated by type wwwroot/css, wwwroot/images
+
+
+
+
+
+
+NOTES===============================
+Controller
+• Be aware that if your route/method expects to receive a parameter through the URL, it will break if it doesn't receive one.
+
+Views
+• Make sure your Views subfolders have names that match your controller names(Without "Controller")
+
+Static Files
+• // In this context '~' refers to the wwwroot folder
+        <link rel="stylesheet" href="~/css/style.css"/>
+
+
+
+DEPENDENCIES========================
+dotnet add package Microsoft.AspNetCore.Mvc
+dotnet add package Microsoft.AspNetCore.StaticFiles
+dotnet add package Microsoft.AspNetCore.Session
+
+Secure Connection Strings (appsettings.json file)
+dotnet add package Microsoft.Extensions.Options.ConfigurationExtensions
+
+SQL Databases
+dotnet add package MySql.Data
+dotnet add package System.Data.SqlClient
+
+
+USINGS==============================
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+Secure Connection Strings (appsettings.json file)
+using Microsoft.Extensions.Configuration
+using Microsoft.AspNetCore.Hosting
+
+Model Validations
+using System.ComponentModel.DataAnnotations;
+using ExampleNamespace.Models;
+••Don’t FORGET to add model ref to CSHTML files/forms
+@model loginReg.Models.User
+
+
+Secure Connection Strings (appsettings.json file)
+services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+services.AddSession();
+services.AddMvc();
+
+app.UseStaticFiles();
+app.UseSession();
+app.UseMvc();  <- must be last
+
+
+RANDOM NUMBERS
+Random rand = new Random(); <- creates random object 
+rand.Next(Int32) <- random number from 0 to Int32
+rand.Next(Int32, Int32) <- random number between two Int32’s
+rand.NextDouble() <- random float >= 0.0 and < 1.0
+
+SESSION
+$ dotnet add package Microsoft.AspNetCore.Session
+using Microsoft.AspNetCore.Http
+HttpContext.Session.SetString("UserName", "Samantha");
+string LocalVariable = HttpContext.Session.GetString("UserName");
+// To retrieve an int from session we use ".GetInt32"
+int? IntVariable = HttpContext.Session.GetInt32("UserAge");
+HttpContext.Session.Clear();
+
+JSON Serialization
+using Newtonsoft.Json;
+ 
+	// Somewhere in your namespace, outside other classes
+	public static class SessionExtensions
+	{
+	    // We can call ".SetObjectAsJson" just like our other session set methods, by passing a key and a value
+	    public static void SetObjectAsJson(this ISession session, string 	key, object value)
+	    {
+	        // This helper function simply serializes the object to JSON and stores it as a string in session
+	        session.SetString(key, JsonConvert.SerializeObject(value));
+	    }
+	       
+	    // generic type T is a stand-in indicating that we need to specify the type on retrieval
+	    public static T GetObjectFromJson<T>(this ISession session, string key)
+	    {
+	        string value = session.GetString(key);
+	        // Upon retrieval the object is deserialized based on the type we specified
+	        return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
+	    }
+	}

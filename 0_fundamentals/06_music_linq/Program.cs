@@ -30,6 +30,7 @@ namespace _06_music_linq
                 Console.WriteLine("Artist Name = {0}", artist.ArtistName);
                 Console.WriteLine("Artist Real Name = {0}", artist.RealName);
                 Console.WriteLine("Artist Age = {0}", artist.Age);
+                Console.WriteLine("Hometown : " + artist.Hometown);
             }
 
             //Who is the youngest artist in our collection of artists?

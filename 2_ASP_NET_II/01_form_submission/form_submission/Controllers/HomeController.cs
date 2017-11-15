@@ -62,6 +62,7 @@ namespace form_submission.Controllers
                 Password = password
             };
             bool resultValid = TryValidateModel(NewUser);
+            
             if (!resultValid || errorsPresent)
             {
                 string errorsSerialized = JsonConvert.SerializeObject(ModelState);

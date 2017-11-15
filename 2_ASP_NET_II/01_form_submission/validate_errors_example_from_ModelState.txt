@@ -1,0 +1,115 @@
+{
+  "age": {
+    "ChildNodes": null,
+    "Children": null,
+    "Key": "age",
+    "SubKey": {
+      "Buffer": "age",
+      "Offset": 0,
+      "Length": 3,
+      "Value": "age",
+      "HasValue": true
+    },
+    "IsContainerNode": false,
+    "RawValue": "",
+    "AttemptedValue": "",
+    "Errors": [
+      {
+        "Exception": null,
+        "ErrorMessage": "The value '' is invalid."
+      }
+    ],
+    "ValidationState": 1
+  },
+  "email": {
+    "ChildNodes": null,
+    "Children": null,
+    "Key": "email",
+    "SubKey": {
+      "Buffer": "email",
+      "Offset": 0,
+      "Length": 5,
+      "Value": "email",
+      "HasValue": true
+    },
+    "IsContainerNode": false,
+    "RawValue": "",
+    "AttemptedValue": "",
+    "Errors": [],
+    "ValidationState": 2
+  },
+  "lastName": {
+    "ChildNodes": null,
+    "Children": null,
+    "Key": "lastName",
+    "SubKey": {
+      "Buffer": "lastName",
+      "Offset": 0,
+      "Length": 8,
+      "Value": "lastName",
+      "HasValue": true
+    },
+    "IsContainerNode": false,
+    "RawValue": "",
+    "AttemptedValue": "",
+    "Errors": [],
+    "ValidationState": 2
+  },
+  "password": {
+    "ChildNodes": null,
+    "Children": null,
+    "Key": "password",
+    "SubKey": {
+      "Buffer": "password",
+      "Offset": 0,
+      "Length": 8,
+      "Value": "password",
+      "HasValue": true
+    },
+    "IsContainerNode": false,
+    "RawValue": "asdfasd",
+    "AttemptedValue": "asdfasd",
+    "Errors": [
+      {
+        "Exception": null,
+        "ErrorMessage": "The password and confirm password do not match."
+      }
+    ],
+    "ValidationState": 1
+  },
+  "firstName": {
+    "ChildNodes": null,
+    "Children": null,
+    "Key": "firstName",
+    "SubKey": {
+      "Buffer": "firstName",
+      "Offset": 0,
+      "Length": 9,
+      "Value": "firstName",
+      "HasValue": true
+    },
+    "IsContainerNode": false,
+    "RawValue": "",
+    "AttemptedValue": "",
+    "Errors": [],
+    "ValidationState": 2
+  },
+  "password_conf": {
+    "ChildNodes": null,
+    "Children": null,
+    "Key": "password_conf",
+    "SubKey": {
+      "Buffer": "password_conf",
+      "Offset": 0,
+      "Length": 13,
+      "Value": "password_conf",
+      "HasValue": true
+    },
+    "IsContainerNode": false,
+    "RawValue": "as",
+    "AttemptedValue": "as",
+    "Errors": [],
+    "ValidationState": 2
+  }
+}
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor[1]

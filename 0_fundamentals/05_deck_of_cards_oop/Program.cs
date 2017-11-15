@@ -17,10 +17,12 @@ namespace _05_deck_of_cards_oop
             playerDeck.Shuffle();
             playerDeck.ShowDeck();
             // playerDeck.CountCardTypes();
-            player1.Draw(playerDeck);
-            player1.Draw(playerDeck);
-            player1.Draw(playerDeck);
+            int drawNum = 5;
+            player1.Draw_N_Cards(playerDeck, drawNum);
+            player2.Draw_N_Cards(playerDeck, drawNum);
             player1.ShowHand();
+            player2.ShowHand();
+            playerDeck.ShowDeck();
             Console.WriteLine("Discarding Second Card");
             player1.Discard(playerDeck, 1);
             Console.WriteLine("Hand after discard:");

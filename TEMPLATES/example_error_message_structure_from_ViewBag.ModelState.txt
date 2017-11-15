@@ -1,0 +1,22 @@
+[1] [object]:"[{\"Key\":\"login\",\"AttemptedValue\":null,\"RawValue\":null,\"ErrorMessages\":[\"The username and password combination you provided were not valid.\"]},{\"Key\":\"loginVM.Password\",\"AttemptedValue\":\"as;ldfkj\",\"RawValue\":\"as;ldfkj\",\"ErrorMessages\":[]},{\"Key\":\"loginVM.Username\",\"AttemptedValue\":\"uqwerqj\",\"RawValue\":\"uqwerqj\",\"ErrorMessages\":[]}]"
+
+
+
+
+
+[1] [object]:"[{\"Key\":\"message\",\"AttemptedValue\":null,\"RawValue\":null,\"ErrorMessages\":[\"Messages may only contain letters, spaces, and special characters (- _ , ( ) @ # * .)\"]},{\"Key\":\"messageVM.message\",\"AttemptedValue\":\"well, that was strange, but let's try this one\",\"RawValue\":\"well, that was strange, but let's try this one\",\"ErrorMessages\":[\"Messages may only contain letters, spaces, and special characters (- _ , ( ) @ # * .)\"]}]"
+
+
+[
+    {
+        "Key:message,AttemptedValue":null,
+        "RawValue":null,
+        "ErrorMessages":["Messages may only contain letters, spaces, and special characters (- _ , ( ) @ # * .)"]
+    },
+    {
+        "Key":"messageVM.message",
+        "AttemptedValue":"well, that was strange, but let's try this one",
+        "RawValue":"well, that was strange, but let's try this one",
+        "ErrorMessages":["Messages may only contain letters, spaces, and special characters (- _ , ( ) @ # * .)"]
+    }
+]

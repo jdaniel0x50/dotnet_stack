@@ -1,0 +1,10 @@
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\bin\Debug\netcoreapp2.0\0_setup.deps.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\bin\Debug\netcoreapp2.0\0_setup.runtimeconfig.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\bin\Debug\netcoreapp2.0\0_setup.runtimeconfig.dev.json
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\bin\Debug\netcoreapp2.0\0_setup.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\bin\Debug\netcoreapp2.0\0_setup.pdb
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\obj\Debug\netcoreapp2.0\0_setup.csproj.CoreCompileInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\obj\Debug\netcoreapp2.0\0_setup.AssemblyInfoInputs.cache
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\obj\Debug\netcoreapp2.0\0_setup.AssemblyInfo.cs
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\obj\Debug\netcoreapp2.0\0_setup.dll
+C:\Users\jvod4\Desktop\DojoAssignments\netCore\1_ASP_NET_I\0_setup\obj\Debug\netcoreapp2.0\0_setup.pdb

@@ -1,0 +1,124 @@
+@model restauranter.Models.ReviewViewModel
+@{
+    ViewData["Title"] = "Reviews | Add";
+}
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-11 mx-auto">
+            <div class="panel panel-login p-3">
+                <div class="panel-heading">
+                    <div class="row p-3">
+                        <div class="row col-md-12">
+                            <h1 class="display-4">Add a New Restaurant Review</h1>
+                            <form asp-controller="Review" asp-action="CreateReview" method="post" class="col-md-12 mt-4 mb-4">
+                                <div class="form-group row mt-1 mb-1">
+                                    <label asp-for="Restaurant" class="col-sm-2 text-left font-weight-bold"></label>
+                                    <select asp-for="Restaurant" tabindex="1" class="form-control col-sm-10">
+                                        @{
+                                            if (ViewBag.Restaurants != null)
+                                            {
+                                                foreach (var rest in ViewBag.Restaurants)
+                                                {
+                                                    <option>@rest.Name</option>
+                                                }
+                                            }
+                                        }
+                                    </select>
+                                    <a href="/restaurants" class="col-md-12 text-primary text-right"><small>Or add a new restaurant ...</small></a>
+                                    @{
+                                        if(ViewBag.review_errors != null)
+                                        {
+                                            @foreach(string key in ViewBag.review_errors.Keys)
+                                            {
+                                                if (key == "Restaurant" && ViewBag.review_errors[key].Errors.Count > 0)
+                                                {
+                                                    foreach(var error in ViewBag.review_errors[key].Errors)
+                                                    {
+                                                        <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                                <div class="form-group row mt-1 mb-1">
+                                    <label asp-for="ReviewDescription" class="col-sm-2 text-left font-weight-bold"></label>
+                                    <input asp-for="ReviewDescription" tabindex="2" class="form-control col-sm-10">
+                                    @{
+                                        if(ViewBag.review_errors != null)
+                                        {
+                                            @foreach(string key in ViewBag.review_errors.Keys)
+                                            {
+                                                if (key == "ReviewDescription" && ViewBag.review_errors[key].Errors.Count > 0)
+                                                {
+                                                    foreach(var error in ViewBag.review_errors[key].Errors)
+                                                    {
+                                                        <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                                <div class="form-group row mt-3 mb-3">
+                                    <label asp-for="VisitDate" class="col-sm-2 text-left font-weight-bold"></label>
+                                    <input type="date" asp-for="VisitDate" tabindex="3" class="form-control col-sm-4">
+                                    @{
+                                        if(ViewBag.review_errors != null)
+                                        {
+                                            @foreach(string key in ViewBag.review_errors.Keys)
+                                            {
+                                                if (key == "VisitDate" && ViewBag.review_errors[key].Errors.Count > 0)
+                                                {
+                                                    foreach(var error in ViewBag.review_errors[key].Errors)
+                                                    {
+                                                        <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    <div class="row col-md-6">
+                                        <label asp-for="StarRating" class="col-md-4 col-sm-2 offset-md-3  text-left font-weight-bold"></label>
+                                        <select asp-for="StarRating" tabindex="4" class="form-control col-md-5 text-center">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                        @{
+                                            if(ViewBag.review_errors != null)
+                                            {
+                                                @foreach(string key in ViewBag.review_errors.Keys)
+                                                {
+                                                    if (key == "StarRating" && ViewBag.review_errors[key].Errors.Count > 0)
+                                                    {
+                                                        foreach(var error in ViewBag.review_errors[key].Errors)
+                                                        {
+                                                            <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 mx-auto">
+                                        <input type="submit" tabindex="5" class="form-control btn btn-register bg-info border-info font-weigh-bold" value="Submit">
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

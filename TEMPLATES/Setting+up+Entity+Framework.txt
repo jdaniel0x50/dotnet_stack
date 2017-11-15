@@ -1,0 +1,137 @@
+CREATING A NEW PROJECT
+
+
+Run/import the following packages:
+dotnet add package MySql.Data.EntityFrameworkCore -v 7.0.7-*
+dotnet add package Microsoft.Extensions.Options.ConfigurationExtensions --version 1.1.1
+
+
+1) Create "appsettings.json"
+	{
+    	"DBInfo": {
+        	"Name": "MySQLconnect",
+        	"ConnectionString": "server=localhost;userid=root;password=root;port=3306;database=[DBNAME];SslMode=None"
+    		}
+	}
+	IMPORTANT!!
+	Make sure to change the database to the correct name
+
+
+2) Create "Properties" folder then insert/create file "MySqlOptions.cs" with inserted code:
+	namespace Yournamespace
+	{
+    	public class MySqlOptions
+    		{
+        	public string Name { get; set; }
+        	public string ConnectionString { get; set; }
+    		}
+	}
+
+3) Create "Models" folder then insert/create "[Your]Context.cs" with inserted code:
+	using Microsoft.EntityFrameworkCore;
+ 
+	namespace YourNamespace.Models
+	{
+    	public class YourContext : DbContext
+    		{
+        	// base() calls the parent class' constructor passing the "options" parameter along
+        	public YourContext(DbContextOptions<YourContext> options) : base(options) { }
+    		}
+	}
+
+==============ON "STARTUP.CS"=======================
+[IMPORTANT] Insert at the top:
+
+using MySQL.Data.EntityFrameworkCore;
+
+using MySQL.Data.EntityFrameworkCore.Extensions;
+
+using Microsoft.Extensions.Configuration;
+
+using Microsoft.AspNetCore.Hosting;
+
+using [Yournamspace].Models;
+
+
+Next Insert following code within "public class startup":
+
+	public IConfiguration Configuration { get; private set; }
+ 
+	public Startup(IHostingEnvironment env)
+	{
+    		var builder = new ConfigurationBuilder()
+    		.SetBasePath(env.ContentRootPath)
+    		.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    		.AddEnvironmentVariables();
+    		Configuration = builder.Build();
+	}
+
+Next inside "Public Void ConfigureServices" insert above AddMvc:
+
+	services.AddDbContext<YourContext>(options => options.UseMySQL(Configuration["DBInfo:ConnectionString"]));
+
+=================================================================
+This should connect to the database we have set up. At this point we need to have a BUILT schema in MySql containing all the tables
+that we want to use for this project. This means that in order to run your project you need MAMP and MySql running.
+
+Connecting your table to a model:
+create a file WITHIN "Models" with the file name similar/same to the tablename (Ex: for "Users" table have "Users.cs" or "Person.cs")
+Inside this newly created file insert this code at the top:
+	using System;
+	using System.ComponentModel.DataAnnotations;
+
+	namespace Yournamespace.Models
+	{}
+
+Within the namespace brackets create a public object that matches the table. See below EXAMPLE:
+	public class Person
+    	{	
+		[key]
+        	public int PersonId { get; set; }
+		[Required]
+        	public string Name { get; set; }
+		[Required]
+        	public string Email { get; set; }
+		[Required]
+        	public string Password { get; set; }
+		[Required]
+        	public int Age { get; set; }
+    	}
+	IMPORTANT NOTE!!!
+	The [key] data validation/annotation is required for your model to run properly. Otherwise you will get errors
+	Also, the variable name (ex: PersonId, Name, etc..) must match perfectly with your table or you will get errors.
+
+
+================================================================
+After we an object class matching each table that we want to use we need to connect the model to the table.
+Inside the "[Your]Context.cs" file insert the below line of code for each model/table:
+	public DbSet<[What you name the model object]> [The table name you want to link it to]{ get; set; }
+	IMPORTANT NOTE!!!
+	You must have this set to "public" otherwise you will get a protection level error and you won't be able to access the table
+
+==================================================================
+Finally, inside the controller insert into the top the following code:
+	using Microsoft.EntityFrameworkCore;
+	using [YourNamespace].Models;
+	using System.Linq;
+
+Next inside "public class Yourcontroller : Controller" insert: 
+	private [YourContext] _context;
+ 
+    	public [Your]Controller([YourContext]ba context)
+    	{
+        _context = context;
+    	}
+
+In order to grab an entire table use:
+	List<Person> AllUsers = _context.Users.ToList();
+IMPORTANT
+		^			  ^
+		|			  |
+This must exactly match		This must exactly match
+class object name		table name
+
+
+
+
+

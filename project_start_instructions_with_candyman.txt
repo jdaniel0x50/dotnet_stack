@@ -1,0 +1,105 @@
+// Instructions to setup a new ASP .NET Core project with Dapper
+
+root_folder> yo candyman <project_name>
+__CHANGE OR REPLACE FILES__
+	project__ \ *.csproj ... replace versions with template\project_start.csproj
+	project__ \Views\Shared\_Layout.cshtml with template
+
+
+__CHANGES IN STARTUP.cs__
++	// new using statements
+	
+using Microsoft.Extensions.Configuration;
+
+	using Microsoft.AspNetCore.Hosting;
++ ___(to ConfigureServices)___
+	services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+            +		services.AddScoped<DbConnector>();
+
++ ___(to Configure)____
+// add a parameter to the function: IHostingEnvironment env,
+	if (env.IsDevelopment())
+	{
+		app.UseDeveloperExceptionPage();
+	}
++ ___(to bottom for dbconnection)____
+	public IConfiguration Configuration { get; private set; }
+
+	public Startup(IHostingEnvironment env)
+
+	{
+
+		var builder = new ConfigurationBuilder()
+
+		.SetBasePath(env.ContentRootPath)
+
+		.AddJsonFile("appsettings.json", optional: true, reloadOnChange:true)
+		.AddEnvironmentVariables();
+
+		Configuration = builder.Build();
+	}
+
+__NEW appsettings.json FILE__
+__CHANGE PORT AND DB NAME IF NECCESSARY__
+{
+    "DBInfo": {
+        "Name": "MySQLconnect",
+        "ConnectionString": "server=localhost;userid=root;password=root;port=3306;database=netcore_users;SslMode=None"
+    }
+}
+
+__NEW DbConnector.cs FILE__
+-- change namespace
+
+__ADD APPSETTINGS.JSON TO THE GITIGNORE FILE__
+######################
+
+# User-specific files
+#
+#####################
+
+appsettings.json
+
+
+__COPY WWWROOT FILES FOR LOGIN TEMPLATES__
+- site.js
+- site.css
+
+__NEW PROPERTIES FOLDER WITH FILE MySqlOptions.cs__
+-- change namespace
+namespace login_registration
+
+{
+    public class MySqlOptions
+    {
+        public string Name { get; set; }
+        public string ConnectionString { get; set; }
+    }
+}
+
+__NEW MODELS FOLDER WITH three model FILES__
+- BaseEntity.cs
+- ModelState.cs
+- Users.cs
+-- change namespace
+
+__NEW FILTERS FOLDER WITH single FILE__
+- ModelStateToTempDataAttribute.cs
+-- change namespace
+
+__RUN NEW COMMANDS IN COMMAND LINE__
+__project_folder> 
+** NOT NEEDED IF ADDED IN CSPROJ FILE IN THE BEGINNING **
+// dotnet add package MySql.Data -v 7.0.7-*
+// dotnet add package System.Data.SqlClient -v 4.1.0-*
+
+dotnet add package Dapper
+
+__CREATE FOLDER FACTORIES__
+- IFactory.cs
+- UserFactory.cs
+-- change namespace
+-- make sure reference to Dapper Factory in HomeController
+
+__project_folder> 
+dotnet restore

@@ -1,0 +1,49 @@
+@{ ViewData["Title"] = "Logged In"; }
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-10 mx-auto">
+            <div class="panel panel-login p-3">
+                <div class="panel-heading">
+                    <div class="row p-3">
+                        <div class="row col-md-12">
+                            <h1>You've Registered!</h1>
+                        </div>
+                        <div class="row col-md-12">
+                            <h5>Thank you, @ViewBag.User.FirstName, for registering on our platform</h4>
+                        </div>
+                        <div class="row col-md-12">
+                            <p>Please take a moment to store your username and password in a safe place.</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-2 mb-3">
+                <div class="panel-body">
+                    <div class="row p-3">
+                        <div class="row col-md-12">
+                            <p>
+                                <span class="font-weight-bold">Username: </span>@ViewBag.User.Username</p>
+                        </div>
+                        <div class="row col-md-12">
+                            <p>
+                                <span class="font-weight-bold">First Name: </span>@ViewBag.User.FirstName</p>
+                        </div>
+                        <div class="row col-md-12">
+                            <p>
+                                <span class="font-weight-bold">Last Name: </span>@ViewBag.User.LastName</p>
+                        </div>
+                        <div class="row col-md-12">
+                            <p>
+                                <span class="font-weight-bold">Email: </span>@ViewBag.User.Email</p>
+                        </div>
+                        <div class="row col-md-12">
+                            <p>
+                                <span class="font-weight-bold">Birthdate: </span>@ViewBag.User.Birthdate.ToString("d")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -129,6 +129,15 @@ namespace _05_deck_of_cards_oop
             return drawnCard;
         }
 
+        public void Draw_N_Cards(Deck drawFromDeck, int numCards)
+        {
+            for (int drawNum = 0; drawNum < numCards; drawNum++)
+            {
+                Draw(drawFromDeck);
+            }
+        }
+
+
         public void ShowHand()
         {
             foreach (Card card in hand)
