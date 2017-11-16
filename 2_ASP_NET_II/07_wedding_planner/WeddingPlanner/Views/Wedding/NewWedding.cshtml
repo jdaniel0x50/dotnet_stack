@@ -1,0 +1,105 @@
+@model WeddingPlanner.Models.WeddingViewModel
+@{
+    ViewData["Title"] = "Wedding Planner | Add";
+}
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-11 mx-auto">
+            <div class="panel panel-login p-3">
+                <div class="">
+                    <div class="row p-3">
+                        <div class="row col-md-12">
+                            <h1 class="display-4">Add a New Wedding</h1>
+                            <form asp-controller="Wedding" asp-action="CreateWedding" method="post" class="col-md-12 mt-4 mb-4">
+                                <div class="form-group row mt-1 mb-1">
+                                    <label asp-for="Wedder1" class="col-sm-2 text-left font-weight-bold"></label>
+                                    <input asp-for="Wedder1" tabindex="1" class="form-control col-sm-10" placeholder="First Wedding Member" value="">
+                                    @{
+                                        if(ViewBag.wedding_errors != null)
+                                        {
+                                            @foreach(string key in ViewBag.wedding_errors.Keys)
+                                            {
+                                                if (key == "Wedder1" && ViewBag.wedding_errors[key].Errors.Count > 0)
+                                                {
+                                                    foreach(var error in ViewBag.wedding_errors[key].Errors)
+                                                    {
+                                                        <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                                <div class="form-group row mt-1 mb-1">
+                                    <label asp-for="Wedder2" class="col-sm-2 text-left font-weight-bold"></label>
+                                    <input asp-for="Wedder2" tabindex="2" class="form-control col-sm-10" placeholder="Second Wedding Member" value="">
+                                    @{
+                                        if(ViewBag.wedding_errors != null)
+                                        {
+                                            @foreach(string key in ViewBag.wedding_errors.Keys)
+                                            {
+                                                if (key == "Wedder2" && ViewBag.wedding_errors[key].Errors.Count > 0)
+                                                {
+                                                    foreach(var error in ViewBag.wedding_errors[key].Errors)
+                                                    {
+                                                        <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                                <div class="form-group row mt-1 mb-1">
+                                    <label asp-for="WeddingDate" class="col-sm-2 text-left font-weight-bold"></label>
+                                    <input asp-for="WeddingDate" type="date" placeholder="mm/dd/yyyy" tabindex="3" class="form-control col-sm-10">
+                                    @{
+                                        if(ViewBag.wedding_errors != null)
+                                        {
+                                            @foreach(string key in ViewBag.wedding_errors.Keys)
+                                            {
+                                                if (key == "WeddingDate" && ViewBag.wedding_errors[key].Errors.Count > 0)
+                                                {
+                                                    foreach(var error in ViewBag.wedding_errors[key].Errors)
+                                                    {
+                                                        <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                                <div class="form-group row mt-1 mb-1">
+                                    <label asp-for="Address" class="col-sm-2 text-left font-weight-bold"></label>
+                                    <input asp-for="Address" tabindex="4" class="form-control col-sm-10" placeholder="Address" value="">
+                                    @{
+                                        if(ViewBag.wedding_errors != null)
+                                        {
+                                            @foreach(string key in ViewBag.wedding_errors.Keys)
+                                            {
+                                                if (key == "Address" && ViewBag.wedding_errors[key].Errors.Count > 0)
+                                                {
+                                                    foreach(var error in ViewBag.wedding_errors[key].Errors)
+                                                    {
+                                                        <p class="text-danger font-weight-bold">@error.ErrorMessage</p>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-sm-4 mx-auto">
+                                        <input type="submit" tabindex="5" class="form-control btn btn-register bg-info border-info font-weight-bold" value="Submit">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

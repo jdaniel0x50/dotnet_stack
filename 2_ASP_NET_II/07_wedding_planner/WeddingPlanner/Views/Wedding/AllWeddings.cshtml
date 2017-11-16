@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Wedding Planner";
+}
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-11 mx-auto">
+            <div class="panel panel-login p-3">
+                <div class="">
+                    <div class="row p-3">
+                        <div class="row col-md-12">
+                            <h1 class="display-4 col-md-9 text-left">Welcome to the Wedding Planner</h1>
+                            <a href="/weddings/add" class="col-md-3 font-weight-bold text-right text-danger">+ Add a New Wedding</a>
+                            <hr class="mt-4 mb-4">
+                            <div class="row col-md-12">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Wedding</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Guests</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    @{
+                                        if (ViewBag.Weddings != null)
+                                        {
+                                            foreach (var item in ViewBag.Weddings)
+                                            {
+                                                <tr>
+                                                    <td scope="row"><a href="/weddings/@item.WeddingId">@item.WeddingParty</a></td>
+                                                    <td>@item.WeddingDate.ToString("d")</td>
+                                                    <td>@item.NumGuests</td>
+                                                    <td>
+                                                    @{
+                                                        if (item.MyWeddingCreation)
+                                                        {
+                                                            // user created the wedding - and can delete
+                                                            <p><a href="/weddings/@item.WeddingId/delete">Delete</a> | </p>
+                                                        }
+                                                        if (item.Attending)
+                                                        {
+                                                            // user is already a scheduled guest
+                                                            <a href="/weddings/@item.WeddingId/unrsvp">Remove RSVP</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="/weddings/@item.WeddingId/rsvp">RSVP</a>
+                                                        }
+                                                    }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

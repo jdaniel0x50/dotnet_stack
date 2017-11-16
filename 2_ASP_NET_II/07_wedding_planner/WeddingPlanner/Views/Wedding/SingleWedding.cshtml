@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Wedding Planner";
+}
+
+<div id="fullscreen_bg" class="fullscreen_bg"></div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-11 mx-auto">
+            <div class="panel panel-login p-3">
+                <div class="row p-3">
+                    <div class="row col-md-12">
+                        <h1 class="display-4 col-md-12 text-left">@ViewBag.Wedding.Wedder1 and @ViewBag.Wedding.Wedder2's Wedding</h1>
+                        <hr class="mt-4 mb-4">
+                        <div class="row col-md-6 mt-4 mb-4">
+                            <div class="card col-md-12 p-3">
+                                <h5 class="card-title">Scheduled on @ViewBag.Wedding.WeddingDate.ToString("D")</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">@ViewBag.Wedding.Address</li>
+                                    <li class="list-group-item text-muted">Created by @ViewBag.CreatedUser.FirstName @ViewBag.CreatedUser.LastName on @ViewBag.Wedding.CreatedAt.ToString("d")</li>
+                                </ul>
+                            </div>
+                            <div class="row mt-4 mb-4 ml-5">
+                                <h4 class="col-md-12"><u>Guests:</u></h4>
+                                <ul>
+                                    @{
+                                        if (ViewBag.Guests != null)
+                                        {
+                                            foreach (var guest in ViewBag.Guests)
+                                            {
+                                                <li class="p-1"><h5>@guest.Guest.FirstName @guest.Guest.LastName</h5></li>
+                                            }
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row col-md-6 mt-4">
+                            <iframe class="col-md-12 ml-4" src="//www.google.com/maps/embed/v1/place?q=@ViewBag.MapAddress
+                                &zoom=13
+                                &key=AIzaSyClzo1NoPzfNOvpu9ReOQew2rxuqyPLBBU">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
