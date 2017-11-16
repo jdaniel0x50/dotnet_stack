@@ -47,4 +47,11 @@ namespace WeddingPlanner.Models
         }
     }
 
+    // model for GoogleMap API settings
+    public class GoogleMapSettings
+    {
+        public string Name { get; set; }
+        public string KeyString { get; set; }
+    }
+
 }

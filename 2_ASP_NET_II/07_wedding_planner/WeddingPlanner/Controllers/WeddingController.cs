@@ -10,6 +10,7 @@ using WeddingPlanner.ActionFilters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace WeddingPlanner.Controllers
 {
@@ -32,11 +33,14 @@ namespace WeddingPlanner.Controllers
 
         // Entity PostGres Code First connection
         private WeddingPlannerContext _context;
+        private readonly IOptions<GoogleMapSettings> _googlemaps;
 
-        public WeddingController(WeddingPlannerContext context)
+        public WeddingController(WeddingPlannerContext context,
+                                IOptions<GoogleMapSettings> googlemapsettings)
         {
             // Entity Framework connections
             _context = context;
+            _googlemaps = googlemapsettings;
         }
 
         // GET: /weddings/
@@ -171,6 +175,7 @@ namespace WeddingPlanner.Controllers
 
             ViewBag.Wedding = _wedding;
             ViewBag.MapAddress = MapAddress;
+            ViewBag.GoogleApiKey = _googlemaps.Value.KeyString;
             ViewBag.CreatedUser = _createdUser;
             ViewBag.Guests = ReturnedGuests;
             return View();
